@@ -1,6 +1,7 @@
 output/LA
 datasets/
 modules/__pycache__/
+*.bin
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
