@@ -14,7 +14,7 @@ def convert():
                         opset_version=10,
                         do_constant_folding=True,
                         input_names=['input'],
-                        output_names=['output'],
+                        output_names=['output', 'out_length'],
                         verbose = True)
 
 
