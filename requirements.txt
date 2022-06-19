@@ -2,7 +2,7 @@ Colour
 LMDB
 Pillow
 opencv-python
-torch==1.3.0
-torchvision==0.4.1
+torch
+torchvision
 editdistance
-matplotlib==2.2.5
+matplotlib

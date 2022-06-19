@@ -24,7 +24,7 @@ class MLM(nn.Module):
         self.we = nn.Linear(n_dim, 1)
         self.sigmoid = nn.Sigmoid()
 
-    def forward(self, input, label_pos, state=False):
+    def forward(self, input, label_pos=None, state=False):
         # transformer unit for generating mask_c
         feature_v_seq = self.MLM_SequenceModeling_mask(input, src_mask=None)[0]
         # position embedding layer
@@ -70,7 +70,7 @@ class MLM_VRM(nn.Module):
         self.SequenceModeling = Transforme_Encoder(n_layers=3, n_position=256)
         self.Prediction = Prediction(n_position=256, N_max_character=26, n_class=37) # N_max_character = 1 eos + 25 characters
         self.nclass = 37
-    def forward(self, input, label_pos, training_stp, is_Train = False):
+    def forward(self, input, label_pos=None, training_stp='LF_1', is_Train = False):
         b, c, h, w = input.shape
         nT = 25
         input = input.permute(0, 1, 3, 2)
@@ -155,7 +155,7 @@ class VisionLAN(nn.Module):
         self.backbone = resnet.resnet45(strides, compress_layer=False)
         self.input_shape = input_shape
         self.MLM_VRM = MLM_VRM()
-    def forward(self, input, label_pos, training_stp, Train_in = True):
+    def forward(self, input, label_pos=None, training_stp='LF_1', Train_in = True):
         # extract features
         features = self.backbone(input)
         # MLM + VRM

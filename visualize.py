@@ -35,7 +35,8 @@ def load_dataset():
     return train_loader, test_loader
 
 def load_network():
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     model_VL = cfgs.net_cfgs['VisualLAN'](**cfgs.net_cfgs['args'])
     model_VL = model_VL.to(device)
     model_VL = torch.nn.DataParallel(model_VL)

@@ -1,5 +1,6 @@
 import torch.nn as nn
 import math
+import torch
 import torch.utils.model_zoo as model_zoo
 import torch.nn.functional as F
 
@@ -84,9 +85,10 @@ class ResNet(nn.Module):
 
     def forward(self, x, multiscale = False):
         out_features = []
-        x = self.conv1_new(x)
+        x = self.conv1_new(x.to(torch.device("cuda:0" if torch.cuda.is_available() else "cpu")))
         x = self.bn1(x)
         x = self.relu(x)
+        x.to(torch.device("cuda:0" if torch.cuda.is_available() else "cpu"))
         tmp_shape = x.size()[2:]
         x = self.layer1(x)
         if x.size()[2:] != tmp_shape:

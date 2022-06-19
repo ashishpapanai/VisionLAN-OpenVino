@@ -12,7 +12,7 @@ import numpy as np
 import pdb
 import os
 import cv2
-from transforms import CVColorJitter, CVDeterioration, CVGeometry
+from .transforms import CVColorJitter, CVDeterioration, CVGeometry
 import re
 from random import sample
 

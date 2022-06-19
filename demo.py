@@ -58,6 +58,6 @@ if __name__ == '__main__':
         output, out_length = model(img, target, '', False)
         pre_string = test_acc_counter.convert(output, out_length)
         print('pre_string:',pre_string[0])
-        with open(output_txt,'a') as f:
-            f.write(img_name+':'+pre_string[0]+'\n')
+        #with open(output_txt,'a') as f:
+        #    f.write(img_name+':'+pre_string[0]+'\n')
 
