@@ -1,0 +1,1 @@
+benchmark_app -m VisionLAN_IR_FP32/VisionLAN.xml -d MYRIAD -api sync -i demo/2.png -progress -b 1

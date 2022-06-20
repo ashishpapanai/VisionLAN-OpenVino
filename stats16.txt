@@ -11,336 +11,342 @@
 
 [Step 3/11] Setting device configuration
 [Step 4/11] Reading network files
-[ INFO ] Read model took 56.79 ms
+[ INFO ] Read model took 60.54 ms
 [Step 5/11] Resizing network to match image sizes and given batch
 [ INFO ] Network batch size: 1
 [Step 6/11] Configuring input of the model
-[ INFO ] Model input '431' precision u8, dimensions ([N,C,H,W]): 1 3 256 64
-[ INFO ] Model output 'output' precision f32, dimensions ([...]): 1 26 37
-[ INFO ] Model output 'output' precision f32, dimensions ([...]): 1 26 37
-[ INFO ] Model output 'output' precision f32, dimensions ([...]): 1 26 37
-[ INFO ] Model output 'output' precision f32, dimensions ([...]): 1 26 37
-[36mI: [ncAPI] [    358046] [benchmark_app] ncDeviceOpen:926	ncDeviceOpen() XLinkBootRemote is running for 1.1-ma2480...
+[ INFO ] Model input '431' precision u8, dimensions ([N,C,H,W]): 1 3 64 256
+[ INFO ] Model output 'out_length' precision f32, dimensions ([...]): 1 26 37
+[ INFO ] Model output 'out_length' precision f32, dimensions ([...]): 1 26 37
+[ INFO ] Model output 'out_length' precision f32, dimensions ([...]): 1 26 37
+[ INFO ] Model output 'out_length' precision f32, dimensions ([...]): 1 26 37
+[36mI: [ncAPI] [    713359] [benchmark_app] ncDeviceOpen:926	ncDeviceOpen() XLinkBootRemote is running for 1.1-ma2480...
 [0m
-[36mI: [ncAPI] [    358267] [benchmark_app] ncDeviceOpen:944	ncDeviceOpen() XLinkBootRemote returned success X_LINK_SUCCESS for 1.1-ma2480[0m
-[36mI: [xLink] [    358804] [benchmark_app] eventReader:629	eventReader thread started[0m
-[36mI: [xLink] [    358804] [Scheduler00Thr] eventSchedulerRun:717	Scheduler thread started[0m
-[36mI: [ncAPI] [    358804] [benchmark_app] ncDeviceOpen:1048	XLinkConnect done - link Id 0
+[36mI: [ncAPI] [    713581] [benchmark_app] ncDeviceOpen:944	ncDeviceOpen() XLinkBootRemote returned success X_LINK_SUCCESS for 1.1-ma2480[0m
+[36mI: [xLink] [    714043] [Scheduler00Thr] eventSchedulerRun:717	Scheduler thread started[0m
+[36mI: [xLink] [    714043] [EventRead00Thr] eventReader:629	eventReader thread started[0m
+[36mI: [ncAPI] [    714043] [benchmark_app] ncDeviceOpen:1048	XLinkConnect done - link Id 0
 [0m
-[36mI: [ncAPI] [    358804] [benchmark_app] ncDeviceOpen:1074	Booted 1.1-ma2480 (2.1-) -> VSC
+[36mI: [ncAPI] [    714043] [benchmark_app] ncDeviceOpen:1074	Booted 1.1-ma2480 (2.1-) -> VSC
 [0m
-[36mI: [watchdog] [    359809] [benchmark_app] registerDevice:160	register device: 0x7fffdbfb9280
+[36mI: [watchdog] [    715044] [benchmark_app] registerDevice:160	register device: 0x7ffef2156460
 [0m
-[36mI: [ncAPI] [    359809] [benchmark_app] getDevAttributes:1271	Device attributes
+[36mI: [watchdog] [    715044] [WatchdogThread] watchdogRoutine:262	thread started
 [0m
-[36mI: [ncAPI] [    359809] [benchmark_app] getDevAttributes:1272	Device FW version: 444c4454.2480.0.0
+[33mW: [global] [    715044] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[36mI: [ncAPI] [    359809] [benchmark_app] getDevAttributes:1274	Maximum graphs: 10
+[36mI: [watchdog] [    715045] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 0 ms
 [0m
-[36mI: [ncAPI] [    359809] [benchmark_app] getDevAttributes:1275	Maximum fifos: 20
+[36mI: [ncAPI] [    715045] [benchmark_app] getDevAttributes:1271	Device attributes
 [0m
-[36mI: [ncAPI] [    359809] [benchmark_app] getDevAttributes:1276	Device memory capacity: 507510776
+[36mI: [ncAPI] [    715045] [benchmark_app] getDevAttributes:1272	Device FW version: 444c4454.2480.0.0
 [0m
-[36mI: [watchdog] [    359810] [WatchdogThread] watchdogRoutine:262	thread started
+[36mI: [ncAPI] [    715045] [benchmark_app] getDevAttributes:1274	Maximum graphs: 10
 [0m
-[33mW: [global] [    359810] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [ncAPI] [    715045] [benchmark_app] getDevAttributes:1275	Maximum fifos: 20
+[0m
+[36mI: [ncAPI] [    715045] [benchmark_app] getDevAttributes:1276	Device memory capacity: 507510776
 [0m
 [1;32m[Info   ][VPU][MyriadPlugin] Device #0 USB ([0m
 [Step 7/11] Loading the model to the device
-[ INFO ] Compile model took 98329.68 ms
+[ INFO ] Compile model took 95800.97 ms
 [Step 8/11] Querying optimal runtime parameters
 [ INFO ] DEVICE: MYRIAD
 [ INFO ]   AVAILABLE_DEVICES  , ['1.1-ma2480']
 [ INFO ]   FULL_DEVICE_NAME  , Intel Movidius Myriad X VPU
 [ INFO ]   OPTIMIZATION_CAPABILITIES  , ['EXPORT_IMPORT', 'FP16']
 [ INFO ]   RANGE_FOR_ASYNC_INFER_REQUESTS  , (3, 6, 1)
-[ INFO ]   DEVICE_THERMAL  , 43.27143478393555
+[ INFO ]   DEVICE_THERMAL  , 44.412784576416016
 [ INFO ]   DEVICE_ARCHITECTURE  , MYRIAD
 [ INFO ]   NUM_STREAMS  , AUTO
 [ INFO ]   PERFORMANCE_HINT  , LATENCY
 [ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS  , 0
 [Step 9/11] Creating infer requests and preparing input data
-[ INFO ] Create 1 infer requests took 3.95 ms
+[ INFO ] Create 1 infer requests took 4.04 ms
+[ INFO ] Prepare image /home/ashishpapanai/Desktop/VisionLAN-OpenVino/demo/1.png
+[ WARNING ] Image is resized from ((73, 204)) to ((256, 64))
 [ INFO ] Prepare image /home/ashishpapanai/Desktop/VisionLAN-OpenVino/demo/2.png
-[ WARNING ] Image is resized from ((47, 82)) to ((64, 256))
+[ WARNING ] Image is resized from ((47, 82)) to ((256, 64))
+[ INFO ] Prepare image /home/ashishpapanai/Desktop/VisionLAN-OpenVino/demo/3.png
+[ WARNING ] Image is resized from ((43, 102)) to ((256, 64))
+[ INFO ] Prepare image /home/ashishpapanai/Desktop/VisionLAN-OpenVino/demo/4.png
+[ WARNING ] Image is resized from ((53, 183)) to ((256, 64))
 [Step 10/11] Measuring performance (Start inference synchronously, inference only: True, limits: 60000 ms duration)
 [ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
-[ INFO ] First inference took 299.66 ms
-[36mI: [ncAPI] [    359810] [benchmark_app] ncGraphAllocate:1974	Starting Graph allocation sequence
+[ INFO ] First inference took 298.89 ms
+[36mI: [ncAPI] [    715045] [benchmark_app] ncGraphAllocate:1974	Starting Graph allocation sequence
 [0m
-[36mI: [watchdog] [    359810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 0 ms
+[36mI: [ncAPI] [    715235] [benchmark_app] ncGraphAllocate:2065	Sent graph[0m
+[36mI: [ncAPI] [    715391] [benchmark_app] ncGraphAllocate:2191	Graph allocation completed successfully
 [0m
-[36mI: [ncAPI] [    359999] [benchmark_app] ncGraphAllocate:2065	Sent graph[0m
-[36mI: [ncAPI] [    360153] [benchmark_app] ncGraphAllocate:2191	Graph allocation completed successfully
+[36mI: [ncAPI] [    715391] [benchmark_app] ncFifoCreate:2875	Init fifo[0m
+[36mI: [ncAPI] [    715391] [benchmark_app] ncFifoAllocate:2976	Creating fifo[0m
+[36mI: [ncAPI] [    715392] [benchmark_app] ncFifoCreate:2875	Init fifo[0m
+[36mI: [ncAPI] [    715392] [benchmark_app] ncFifoAllocate:2976	Creating fifo[0m
+[33mW: [global] [    716044] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[36mI: [ncAPI] [    360153] [benchmark_app] ncFifoCreate:2875	Init fifo[0m
-[36mI: [ncAPI] [    360153] [benchmark_app] ncFifoAllocate:2976	Creating fifo[0m
-[36mI: [ncAPI] [    360155] [benchmark_app] ncFifoCreate:2875	Init fifo[0m
-[36mI: [ncAPI] [    360155] [benchmark_app] ncFifoAllocate:2976	Creating fifo[0m
-[33mW: [global] [    360810] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    716044] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    360810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    717043] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    361810] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    717044] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    361810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    718043] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    362810] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    718044] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    362811] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    719042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    363810] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    719043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    363812] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    720042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    364809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    720043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    364810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    721042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    365809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    721043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    365810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    722042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    366809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    722043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    366810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    723042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    367809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    723043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    367810] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    724042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    368809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    724047] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    368809] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    725042] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    369809] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    725043] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    369813] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    726041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    370808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    726042] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    370809] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    727041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    371808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    727042] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    371808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    728041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    372808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    728041] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    372809] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    729041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    373808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    729041] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    373808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    730041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    374808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    730042] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    374808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    731041] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    375808] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    731042] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    375808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    732040] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    376807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    732041] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    376808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    733039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    377807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    733040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    377808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    734039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    378807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    734040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    378808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    735039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    379807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    735040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    379808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    736039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    380807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    736040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    380808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    737039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    381807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    737042] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    381808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    738039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    382807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    738040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    382811] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    739039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    383807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    739040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    383808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    740039] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    384807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    740040] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    384808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    741038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    385807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    741039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    385808] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    742038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    386807] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    742039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    386807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    743038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    387806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    743039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    387807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    744038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    388806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    744039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    388807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    745038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    389806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    745038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    389807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    746038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    390806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    746039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    390807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    747038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    391806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    747039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    391807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    748038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    392806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    748039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    392807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    749038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    393806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    749039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    393807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    750037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    394806] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    750038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    394807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    751037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    395805] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    751038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    395806] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    752038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    396804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    752038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    396805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    753038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    397804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    753039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    397805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    754038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    398804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    754039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    398805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    755038] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    399804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    755038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    399805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    756037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    400804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    756038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    400805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    757037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    401804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    757038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    401805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    758037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    402804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    758039] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    402805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    759037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    403804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    759038] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    403805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    760037] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    404804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    760037] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    404805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    761036] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    405804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    761037] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    405805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    762036] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    406804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    762037] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    406805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    763035] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    407804] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    763036] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    407805] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    764034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    408803] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    764035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    408804] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    765034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    409803] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    765035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    409803] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    766034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    410802] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    766035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    410803] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    767034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    411802] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    767035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    411803] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    768034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    412802] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    768035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    412803] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    769034] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    413801] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    769035] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    413807] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    770033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    414801] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    770034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    414802] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    771033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    415801] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    771034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    415802] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 1000 ms
+[33mW: [global] [    772033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    416800] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    772034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    416801] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    773033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    417799] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    773034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    417800] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    774033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    418799] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    774034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 999 ms
 [0m
-[36mI: [watchdog] [    418800] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[33mW: [global] [    775033] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
 [0m
-[33mW: [global] [    419799] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    775034] [WatchdogThread] keepAlive:75	[0x5634ee2101c0] device, ping succeed after 1000 ms
 [0m
-[36mI: [watchdog] [    419800] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[36mI: [ncAPI] [    775867] [benchmark_app] ncDeviceClose:1708	Removing device...[0m
+[36mI: [watchdog] [    775867] [benchmark_app] removeDevice:202	remove device: 0x7ffef2157cb8
 [0m
-[33mW: [global] [    420799] [WatchdogThread] XLinkWriteDataWithTimeout:185	XLinkWriteDataWithTimeout is not fully supported yet. The XLinkWriteData method is called instead. Desired timeout = 12000
+[36mI: [watchdog] [    775867] [WatchdogThread] watchdogRoutine:295	no active devices to watch, stopping  Watchdog thread
 [0m
-[36mI: [watchdog] [    420800] [WatchdogThread] keepAlive:75	[0x56463b4f14e0] device, ping succeed after 999 ms
+[36mI: [watchdog] [    775867] [WatchdogThread] watchdogRoutine:321	thread ended
 [0m
-[36mI: [ncAPI] [    421661
+[36mI: [xLink] [    775868] [Scheduler00Thr] dispa
 [Step 11/11] Dumping statistics report
-Count:          216 iterations
-Duration:       60239.26 ms
+Count:          217 iterations
+Duration:       60052.01 ms
 Latency:
-    Median:     276.35 ms
-    AVG:        278.66 ms
-    MIN:        273.96 ms
-    MAX:        562.75 ms
+    Median:     276.59 ms
+    AVG:        276.50 ms
+    MIN:        274.72 ms
+    MAX:        277.81 ms
 Throughput: 3.62 FPS
-] [benchmark_app] ncDeviceClose:1708	Removing device...[0m
-[36mI: [watchdog] [    421661] [benchmark_app] removeDevice:202	remove device: 0x7fffdbfbaad8
+tcherClean:987	Start Clean Dispatcher...[0m
+[36mI: [xLink] [    775868] [Scheduler00Thr] dispatcherClean:1041	Clean Dispatcher Successfully...[0m
+[36mI: [xLink] [    775868] [Scheduler00Thr] eventSchedulerRun:741	Scheduler thread stopped[0m
+[35mE: [global] [    775868] [benchmark_app] XLink_sem_wait:95	 XLink_sem_inc(sem) method call failed with an error: -1[0m
+[35mE: [global] [    775868] [benchmark_app] XLinkResetRemote:263	can't wait dispatcherClosedSem
 [0m
-[36mI: [watchdog] [    421661] [WatchdogThread] watchdogRoutine:295	no active devices to watch, stopping  Watchdog thread
-[0m
-[36mI: [watchdog] [    421661] [WatchdogThread] watchdogRoutine:321	thread ended
-[0m
-[36mI: [xLink] [    421662] [Scheduler00Thr] dispatcherClean:987	Start Clean Dispatcher...[0m
-[36mI: [xLink] [    421662] [Scheduler00Thr] dispatcherClean:1041	Clean Dispatcher Successfully...[0m
-[36mI: [xLink] [    421662] [Scheduler00Thr] eventSchedulerRun:741	Scheduler thread stopped[0m
-[36mI: [ncAPI] [    422295] [benchmark_app] destroyDeviceHandle:1651	Destroying device handler[0m
-[36mI: [watchdog] [    422295] [benchmark_app] ~WatchdogImpl:125	watchdog terminated
+[33mW: [ncAPI] [    775868] [benchmark_app] ncDeviceClose:1792	Failed to reset, rc: X_LINK_ERROR[0m
+[36mI: [ncAPI] [    776261] [benchmark_app] destroyDeviceHandle:1651	Destroying device handler[0m
+[36mI: [watchdog] [    776261] [benchmark_app] ~WatchdogImpl:125	watchdog terminated
 [0m
