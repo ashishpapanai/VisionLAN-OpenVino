@@ -7,9 +7,10 @@ from torchvision import transforms
 def convert():
     transf = transforms.ToTensor()
     model = load_network()
+    model = model.eval()
     img_width = 256
     img_height = 64
-    img = Image.open('./demo/1.png').convert('RGB')
+    img = Image.open('./demo/4.png').convert('RGB')
     img = img.resize((img_width, img_height))
     img = transf(img)
     img = torch.unsqueeze(img,dim = 0)
@@ -18,7 +19,7 @@ def convert():
                         img, 
                         'VisionLAN.onnx', 
                         export_params=True, 
-                        opset_version=10,
+                        opset_version=13,
                         do_constant_folding=True,
                         input_names=['input'],
                         output_names=['output', 'out_length'],
